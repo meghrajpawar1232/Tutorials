@@ -1,5 +1,4 @@
-output "user_arn" {
-  value       = aws_iam_user.example.arn
-  description = "The ARN of the created IAM user"
+output "subnet_id" {
+  value       = aws_subnet.example.id
+  description = "The ID for the first subnet."
 }
-
