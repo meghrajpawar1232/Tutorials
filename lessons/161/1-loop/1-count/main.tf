@@ -2,40 +2,39 @@ provider "aws" {
   region = "us-east-1"
 }
 
-
-# resource "aws_iam_user" "anton" {
-#   name = "anton"
-# }
-
-
-# for (i = 0; i < 3; i++) {
-#   resource "aws_iam_user" "anton" {
-#     name = "anton"
-#   }
-# }
-
-
-# resource "aws_iam_user" "anton" {
-#   count = 3
-#   name  = "anton"
+# resource "aws_iam_user" "example" {
+#   name = "gilfoyle"
 # }
 
 
 # for (i = 0; i < 3; i++) {
 #   resource "aws_iam_user" "example" {
-#     name = "neo.${i}"
+#     name = "gilfoyle"
 #   }
 # }
 
-# resource "aws_iam_user" "anton" {
+
+# resource "aws_iam_user" "example" {
 #   count = 3
-#   name  = "anton.${count.index}"
+#   name  = "gilfoyle"
+# }
+
+
+# for (i = 0; i < 3; i++) {
+#   resource "aws_iam_user" "example" {
+#     name = "gilfoyle.${i}"
+#   }
+# }
+
+# resource "aws_iam_user" "example" {
+#   count = 3
+#   name  = "gilfoyle.${count.index}"
 # }
 
 variable "user_names" {
   description = "Create IAM users with these names"
   type        = list(string)
-  default     = ["neo", "trinity", "morpheus"]
+  default     = ["gilfoyle", "richard", "jared"]
 }
 
 
