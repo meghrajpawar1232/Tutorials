@@ -5,10 +5,8 @@ variable "subnet_cidr_blocks" {
 }
 
 module "subnets" {
-  source = "../../modules/subnet"
-
-  count = length(var.subnet_cidr_blocks)
-
+  source            = "../../modules/subnet"
+  count             = length(var.subnet_cidr_blocks)
   vpc_id            = aws_vpc.main.id
   subnet_cidr_block = var.subnet_cidr_blocks[count.index]
 }
