@@ -12,3 +12,7 @@ resource "aws_subnet" "example" {
   cidr_block        = each.value
   availability_zone = "us-east-1a"
 }
+
+output "all_subnets" {
+  value = aws_subnet.example
+}
