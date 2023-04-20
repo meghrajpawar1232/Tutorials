@@ -13,10 +13,6 @@ resource "aws_subnet" "example" {
   availability_zone = "us-east-1a"
 }
 
-output "all_subnets" {
-  value = aws_subnet.example
-}
-
 output "all_ids" {
   value = values(aws_subnet.example)[*].id
 }
