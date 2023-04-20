@@ -1,18 +1,21 @@
-variable "subnet_cidr_blocks" {
-  description = "CIDR blocks for the subnets."
-  type        = list(string)
-  default     = ["10.0.0.0/19", "10.0.32.0/19", "10.0.64.0/19"]
-}
+# variable "custom_ports" {
+#   description = "Custom ports to open on the security group."
+#   type        = map(any)
 
-module "subnets" {
-  source   = "../../modules/subnet"
-  for_each = toset(var.subnet_cidr_blocks)
+#   default = {
+#     80   = ["0.0.0.0/0"]
+#     8081 = ["10.0.0.0/16"]
+#   }
+# }
 
-  vpc_id            = aws_vpc.main.id
-  subnet_cidr_block = each.value
-}
+# resource "aws_security_group" "web" {
+#   name   = "allow-web-access"
+#   vpc_id = aws_vpc.main.id
 
-output "subnet_ids" {
-  value       = values(module.subnets)[*].subnet_id
-  description = "The IDs of the created subnets."
-}
+#   ingress {
+#     from_port   = 80
+#     to_port     = 80
+#     protocol    = "tcp"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
+# }
