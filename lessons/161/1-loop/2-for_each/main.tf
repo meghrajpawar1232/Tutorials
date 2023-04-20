@@ -16,3 +16,7 @@ resource "aws_subnet" "example" {
 output "all_subnets" {
   value = aws_subnet.example
 }
+
+output "all_ids" {
+  value = values(aws_subnet.example)[*].id
+}
