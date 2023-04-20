@@ -12,7 +12,8 @@ locals {
 }
 
 resource "aws_instance" "web" {
-  for_each          = local.web_servers
+  for_each = local.web_servers
+
   ami               = "ami-1234567890"
   instance_type     = each.value.instance_type
   availability_zone = each.value.availability_zone
